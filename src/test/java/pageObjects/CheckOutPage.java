@@ -25,9 +25,8 @@ public class CheckOutPage {
 		try {
 			driver.switchTo().alert();
 			return true;
-		} // try
-		catch (Exception e) {
+		} catch (Exception e) {
 			return false;
-		} // catch
+		}
 	}
 }
