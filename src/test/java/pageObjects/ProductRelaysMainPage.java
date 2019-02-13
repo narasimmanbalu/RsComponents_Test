@@ -22,4 +22,13 @@ public class ProductRelaysMainPage {
 		Thread.sleep(500);
 	}
 
+	public boolean isAlertPresent() {
+		try {
+			driver.switchTo().alert();
+			return true;
+		} // try
+		catch (Exception e) {
+			return false;
+		} // catch
+	}
 }

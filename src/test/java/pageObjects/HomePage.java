@@ -39,6 +39,12 @@ public class HomePage {
 
 	@FindBy(how = How.ID, using = "btnSearch")
 	private WebElement searchButton;
+	
+	@FindBy(how = How.CSS, using = ".newProducts")
+	private WebElement newProduct;
+	
+	@FindBy(how = How.CSS, using = ".list-group-item[title='Batteries']")
+	private WebElement newProductBatteries;
 
 	@FindBy(how = How.XPATH, using = ".//*[@id='sidebar']/section/div[1]/div/ul/li/a/div")
 	private WebElement catrgoryFilter;
@@ -76,8 +82,9 @@ public class HomePage {
 		relays.click();
 	}
 
-	public void clickShoppingCart() {
+	public void clickShoppingCart() throws InterruptedException {
 		clickShoppingCart.click();
+		Thread.sleep(1000);
 	}
 
 	public void clickLogout() {
@@ -97,20 +104,29 @@ public class HomePage {
 
 	public void categoryFilter() throws InterruptedException {
 		catrgoryFilter.click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	}
 
 	public void brandFilter() throws InterruptedException {
 		brandFilter.click();
 		selectBrand.click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	}
 
+	public void clickNewProduct() throws InterruptedException {
+		newProduct.click();
+	}
+
+	public void clickNewProductBatteries() throws InterruptedException {
+		newProductBatteries.click();
+		Thread.sleep(1000);
+	}
+	
 	public void applyFilter() throws InterruptedException {
 		applyFilter.click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	}
-
+	
 	public boolean isAlertPresent() {
 		try {
 			driver.switchTo().alert();

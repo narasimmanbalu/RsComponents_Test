@@ -52,7 +52,7 @@ public class ShoppingCartPage {
 		String myWindowHandle = driver.getWindowHandle();
 		driver.switchTo().window(myWindowHandle);
 		continueButton.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 
 }

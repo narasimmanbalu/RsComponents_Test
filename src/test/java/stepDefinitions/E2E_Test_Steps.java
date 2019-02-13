@@ -54,12 +54,14 @@ public class E2E_Test_Steps {
 	@When("^select on Reed Relay as sub product$")
 	public void select_on_Reed_Relay_as_sub_product() throws Throwable {
 		productRelaysMainPage = pageObjectManager.getProductRelaysMainPage();
+		productRelaysMainPage.isAlertPresent();
 		productRelaysMainPage.selectReedRelaysProduct();
 	}
 
 	@When("^add spdt Reed Relay product to shoppig cart$")
 	public void add_spdt_Reed_Relay_product_to_shoppig_cart() throws Throwable {
 		productReedRelaysPage = pageObjectManager.getProductReedRelaysPage();
+		productReedRelaysPage.isAlertPresent();
 		productReedRelaysPage.addProductReedRelaysToCart();
 	}
 
@@ -95,11 +97,13 @@ public class E2E_Test_Steps {
 		shoppingCartPage = pageObjectManager.getShoppingCartPage();
 		shoppingCartPage.isAlertPresent();
 		shoppingCartPage.removeItemfromCart();
+		shoppingCartPage.isAlertPresent();
 		shoppingCartPage.clickHeaderLogo();
 	}
 
 	@When("^user search the item with \"([^\"]*)\" as \"([^\"]*)\"$")
 	public void user_search_the_item_with_as(String arg1, String arg2) throws Throwable {
+		homePage.isAlertPresent();
 		homePage.seachItem(arg2);
 	}
 
@@ -119,6 +123,18 @@ public class E2E_Test_Steps {
 	public void apply_filters_for_the_search_results() throws Throwable {
 		homePage.isAlertPresent();
 		homePage.applyFilter();
+	}
+
+	@When("^click on New Product link$")
+	public void click_on_New_Product_link() throws Throwable {
+		homePage.isAlertPresent();
+		homePage.clickNewProduct();
+	}
+
+	@When("^click Batteries from Categories$")
+	public void click_Batteries_from_Categories() throws Throwable {
+		homePage.isAlertPresent();
+		homePage.clickNewProductBatteries();	
 	}
 
 }
