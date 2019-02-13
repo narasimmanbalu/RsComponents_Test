@@ -39,10 +39,10 @@ public class HomePage {
 
 	@FindBy(how = How.ID, using = "btnSearch")
 	private WebElement searchButton;
-	
+
 	@FindBy(how = How.CSS, using = ".newProducts")
 	private WebElement newProduct;
-	
+
 	@FindBy(how = How.CSS, using = ".list-group-item[title='Batteries']")
 	private WebElement newProductBatteries;
 
@@ -92,9 +92,9 @@ public class HomePage {
 		driver.quit();
 	}
 
-	public void seachItem(String searchby) {
+	public void seachItem(String value) {
 		searchField.click();
-		searchField.sendKeys(searchby);
+		searchField.sendKeys(value);
 		searchButton.click();
 	}
 
@@ -121,19 +121,19 @@ public class HomePage {
 		newProductBatteries.click();
 		Thread.sleep(2000);
 	}
-	
+
 	public void applyFilter() throws InterruptedException {
 		applyFilter.click();
 		Thread.sleep(2000);
 	}
-	
+
 	public boolean isAlertPresent() {
 		try {
 			driver.switchTo().alert();
 			return true;
-		} // try
+		}
 		catch (Exception e) {
 			return false;
-		} // catch
+		}
 	}
 }

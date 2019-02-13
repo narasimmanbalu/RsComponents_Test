@@ -23,9 +23,9 @@ public class LoginPage {
 	@FindBy(how = How.NAME, using = "loginBtn")
 	private WebElement loginButton;
 
-	public void login() {
-		userName.sendKeys("Balu1");
-		password.sendKeys("welcome");
+	public void login(String username, String pwd) {
+		userName.sendKeys(username);
+		password.sendKeys(pwd);
 		loginButton.click();
 	}
 }

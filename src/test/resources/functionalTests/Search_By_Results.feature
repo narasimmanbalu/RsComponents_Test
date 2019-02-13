@@ -3,7 +3,7 @@ Feature: Search with different options
 
 Background: User is Logged In
   	Given User is in Home Page and click login link
-    When user enters username  and password and click login button
+    When user enters "Balu1"  and "welcome" and click login button
 
 @SearchTest
   Scenario Outline: Search with different options

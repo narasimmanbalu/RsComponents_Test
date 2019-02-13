@@ -37,10 +37,10 @@ public class Steps {
 		homePage.clickLoginLink();
 	}
 
-	@When("^user enters username  and password and click login button$")
-	public void user_enters_username_and_password_and_click_login_button() throws Throwable {
+	@When("^user enters \"([^\"]*)\"  and \"([^\"]*)\" and click login button$")
+	public void user_enters_and_and_click_login_button(String username, String pwd) throws Throwable {
 		loginPage = pageObjectManager.getLoginPage();
-		loginPage.login();
+		loginPage.login(username, pwd);
 	}
 
 	@And("^user click on the All Product link and select Relay as main product type$")
@@ -102,9 +102,9 @@ public class Steps {
 	}
 
 	@When("^user search the item with \"([^\"]*)\" as \"([^\"]*)\"$")
-	public void user_search_the_item_with_as(String arg1, String arg2) throws Throwable {
+	public void user_search_the_item_with_as(String searchby, String value) throws Throwable {
 		homePage.isAlertPresent();
-		homePage.seachItem(arg2);
+		homePage.seachItem(value);
 	}
 
 	@When("^filter by first Categories$")
@@ -134,7 +134,7 @@ public class Steps {
 	@When("^click Batteries from Categories$")
 	public void click_Batteries_from_Categories() throws Throwable {
 		homePage.isAlertPresent();
-		homePage.clickNewProductBatteries();	
+		homePage.clickNewProductBatteries();
 	}
 
 }
