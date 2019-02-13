@@ -20,4 +20,14 @@ public class CheckOutPage {
  	public void clickHeaderLogo() {
  	headerLogo.click();
 	}
+ 	
+ 	public boolean isAlertPresent() {
+ 	    try {
+ 	        driver.switchTo().alert();
+ 	        return true;
+ 	    } // try
+ 	    catch (Exception e) {
+ 	        return false;
+ 	    } // catch
+ 	}
 }

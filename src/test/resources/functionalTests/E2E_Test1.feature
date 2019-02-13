@@ -2,7 +2,7 @@
 Feature: Title of your feature
   I want to use this template for my feature file
   
- @Ignore
+ @E2ETest
   Scenario: Title of your scenario
     Given User is in Home Page and click login link
     When user enters username  and password and click login button

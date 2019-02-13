@@ -26,13 +26,25 @@ public class ShoppingCartPage {
  	@FindBy(how = How.ID, using = "js-logInOut") 
  	private WebElement logoutLink;
  	
+ 	@FindBy(how = How.CSS, using = ".rslogo") 
+ 	private WebElement headerLogo;
+ 	
+ 	public void clickHeaderLogo() {
+ 	 	headerLogo.click();
+ 	}
+ 	
  	public void clickCheckout() {
  	clickCheckout.click();
  	}
  	
- 	public void clickLogOut() {
- 	logoutLink.click();
- 	driver.quit();
+ 	public boolean isAlertPresent() {
+ 	    try {
+ 	        driver.switchTo().alert();
+ 	        return true;
+ 	    } // try
+ 	    catch (Exception e) {
+ 	        return false;
+ 	    } // catch
  	}
  	
  	public void removeItemfromCart() throws InterruptedException {

@@ -17,8 +17,9 @@ public class ProductRelaysMainPage {
  	@FindBy(how = How.CSS, using = ".card.js-tile [href='/web/c/relays/reed-relays/reed-relays/']") 
  	private WebElement productReedRelays;
  	
- 	public void selectReedRelaysProduct() {
+ 	public void selectReedRelaysProduct() throws InterruptedException {
  	productReedRelays.click();
+ 	Thread.sleep(500);
 	}
 
 }

@@ -52,6 +52,7 @@ public class E2E_Test_Steps {
 	@And("^user click on the All Product link and select Relay as main product type$")
 	public void user_click_on_the_All_Product_link_and_select_Relay_as_main_product_type() throws Throwable {
 		homePage = pageObjectManager.getHomePage();
+		homePage.isAlertPresent();
 		homePage.clickAllProductLink();
 		homePage.selectRelaysProduct();
 	}
@@ -71,29 +72,59 @@ public class E2E_Test_Steps {
 	@Then("^click checkout link on Cart page$")
 	public void click_checkout_link_on_Cart_page() throws Throwable {
 		homePage = pageObjectManager.getHomePage();
+		homePage.isAlertPresent();
 		homePage.clickShoppingCart();
 		shoppingCartPage = pageObjectManager.getShoppingCartPage();
+		shoppingCartPage.isAlertPresent();
 		shoppingCartPage.clickCheckout();
+		checkOutPage = pageObjectManager.getCheckOutPage();
+		checkOutPage.isAlertPresent();
+		checkOutPage.clickHeaderLogo();
 	}
 
 	@Then("^logout from application$")
 	public void logout_from_application() throws Throwable {
-		checkOutPage = pageObjectManager.getCheckOutPage();
-		checkOutPage.clickHeaderLogo();
 		homePage = pageObjectManager.getHomePage();
+		homePage.isAlertPresent();
 		homePage.clickLogout();
 	}
 	
 	@When("^click on shopping cart$")
 	public void click_on_shopping_cart() throws Throwable {
 		homePage = pageObjectManager.getHomePage();
+		homePage.isAlertPresent();
 		homePage.clickShoppingCart();
 	}
 
-	@When("^click removelink on added item and logout$")
-	public void click_removelink_on_added_item_and_logout() throws Throwable {
+	@When("^click removelink on added item$")
+	public void click_removelink_on_added_item() throws Throwable {
 		shoppingCartPage = pageObjectManager.getShoppingCartPage();
+		shoppingCartPage.isAlertPresent();
 		shoppingCartPage.removeItemfromCart();
-		shoppingCartPage.clickLogOut();
+		shoppingCartPage.clickHeaderLogo();		
 	}
+	
+	@When("^user search the item with \"([^\"]*)\" as \"([^\"]*)\"$")
+	public void user_search_the_item_with_as(String arg1, String arg2) throws Throwable {
+		 homePage.seachItem(arg2);
+	}
+
+	@When("^filter by first Categories$")
+	public void filter_by_first_Categories() throws Throwable {
+		homePage.isAlertPresent();
+		homePage.categoryFilter();
+	}
+
+	@When("^filter by Brand$")
+	public void filter_by_Brand() throws Throwable {
+		homePage.isAlertPresent();
+		homePage.brandFilter();
+	}
+
+	@When("^apply filters for the search results$")
+	public void apply_filters_for_the_search_results() throws Throwable {
+		homePage.isAlertPresent();
+		homePage.applyFilter();
+	}
+
 }
