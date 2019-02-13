@@ -1,10 +1,12 @@
 
 Feature: Search with different options
 
-@SearchTest
-  Scenario Outline: Search with different options
+Background: User is Logged In
   	Given User is in Home Page and click login link
     When user enters username  and password and click login button
+
+@SearchTest
+  Scenario Outline: Search with different options
     And user search the item with "<searchby>" as "<value>"
     And filter by first Categories
     And filter by Brand
@@ -18,8 +20,6 @@ Feature: Search with different options
  
 @SearchTest
   Scenario: Search by New Product
-    Given User is in Home Page and click login link
-    When user enters username  and password and click login button
     And click on New Product link
     And click Batteries from Categories 
     And filter by first Categories

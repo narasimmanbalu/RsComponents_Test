@@ -119,7 +119,7 @@ public class HomePage {
 
 	public void clickNewProductBatteries() throws InterruptedException {
 		newProductBatteries.click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	}
 	
 	public void applyFilter() throws InterruptedException {
